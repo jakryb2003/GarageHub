@@ -44,11 +44,11 @@ public class ServiceRecord extends BaseEntity {
     @Column(name = "total_cost", precision = 10, scale = 2)
     private BigDecimal totalCost;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "vehicle_id", nullable = false)
     private Vehicle vehicle;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "mechanic_id", nullable = false)
     private Mechanic mechanic;
 
