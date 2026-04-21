@@ -46,13 +46,6 @@ public class Mechanic extends BaseEntity {
     @Column
     private Boolean active;
 
-    @JoinTable(
-            name = "mechanic_garage",
-            joinColumns = @JoinColumn(name = "mechanic_id"),
-            inverseJoinColumns = @JoinColumn(name = "garage_id")
-    )
-    private Set<Garage> garages = new HashSet<>();
-
     @OneToMany(mappedBy = "mechanic", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<MechanicGarage> garageAssignments = new ArrayList<>();
 

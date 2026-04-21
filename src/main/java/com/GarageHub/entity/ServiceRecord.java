@@ -5,6 +5,7 @@ import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
@@ -44,9 +45,11 @@ public class ServiceRecord extends BaseEntity {
     private BigDecimal totalCost;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "vehicle_id", nullable = false)
     private Vehicle vehicle;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "mechanic_id", nullable = false)
     private Mechanic mechanic;
 
     @OneToOne(fetch = FetchType.LAZY)

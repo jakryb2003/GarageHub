@@ -57,9 +57,6 @@ public class Garage extends BaseEntity {
     @Column(name = "closing_time")
     private LocalTime closingTime;
 
-    @OneToMany
-    private List<Mechanic> mechanics = new ArrayList<>();
-
     @OneToMany(mappedBy = "garage", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Appointment> appointments = new ArrayList<>();
 
