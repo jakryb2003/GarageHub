@@ -1,4 +1,7 @@
 package com.GarageHub.repository;
 
-public class CarRepository {
+import com.GarageHub.entity.Car;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CarRepository extends JpaRepository<Car,Long> {
 }

@@ -1,4 +1,7 @@
 package com.GarageHub.repository;
 
-public class PaymentRepository {
+import com.GarageHub.entity.Payment;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface PaymentRepository extends JpaRepository<Payment, Long> {
 }
