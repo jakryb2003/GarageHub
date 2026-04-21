@@ -29,6 +29,9 @@ public class Appointment extends BaseEntity {
     private Mechanic mechanic;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    private Client client;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     private Garage garage;
 
     @Enumerated(EnumType.STRING)

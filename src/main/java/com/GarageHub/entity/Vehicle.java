@@ -36,7 +36,7 @@ public abstract class Vehicle extends BaseEntity{
     private String color;
 
     @Column(nullable = false)
-    private String mileage;
+    private Integer mileage;
 
     @Column(name = "registration_number", nullable = false, unique = true)
     private String registrationNumber;

@@ -13,7 +13,6 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.Instant;
-import java.util.Objects;
 
 @MappedSuperclass
 @Getter
@@ -29,7 +28,7 @@ public abstract class BaseEntity {
     private Instant createdAt;
 
     @LastModifiedDate
-    @Column(name = "update_at", updatable = false, nullable = false)
+    @Column(name = "updated_at", nullable = false)
     private Instant updatedAt;
 
     @Version
@@ -37,9 +36,6 @@ public abstract class BaseEntity {
 
     @Override
     public boolean equals(Object o) {
-//        if (o == null || getClass() != o.getClass()) return false;
-//        BaseEntity that = (BaseEntity) o;
-//        return Objects.equals(id, that.id);
         if (this == o) return true;
         if (!(o instanceof BaseEntity that)) return false; {
             return id != null && id.equals(that.id);

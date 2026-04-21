@@ -12,7 +12,6 @@ import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.sql.ast.tree.predicate.Junction;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -54,8 +53,7 @@ public class ServiceRecord extends BaseEntity {
     @Nullable
     private Appointment appointment;
 
-    @OneToMany(mappedBy = "used_part", cascade = CascadeType.ALL, orphanRemoval = true)
-    //Junction jak dodać i po co?
+    @OneToMany(mappedBy = "serviceRecord", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<UsedPart> usedParts = new ArrayList<>();
 
 }

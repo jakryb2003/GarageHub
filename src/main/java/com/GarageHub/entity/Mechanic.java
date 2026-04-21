@@ -23,7 +23,7 @@ import java.util.Set;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Mechanic {
+public class Mechanic extends BaseEntity {
 
     @Column(name = "first_name", nullable = false)
     private String firstName;
@@ -46,7 +46,6 @@ public class Mechanic {
     @Column
     private Boolean active;
 
-    @ManyToMany
     @JoinTable(
             name = "mechanic_garage",
             joinColumns = @JoinColumn(name = "mechanic_id"),
@@ -54,7 +53,10 @@ public class Mechanic {
     )
     private Set<Garage> garages = new HashSet<>();
 
-    @OneToMany(mappedBy = "appointment", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "mechanic", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<MechanicGarage> garageAssignments = new ArrayList<>();
+
+    @OneToMany(mappedBy = "mechanic", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Appointment> appointments = new ArrayList<>();
 
 }
